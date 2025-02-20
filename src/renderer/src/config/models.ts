@@ -1514,7 +1514,21 @@ export const SYSTEM_MODELS: Record<string, Model[]> = {
       name: 'jina-embeddings-v2-base-code',
       group: 'Jina'
     }
-  ]
+  ],
+  ctyun: [
+    {
+      id: '4bd107bff85941239e27b1509eccfe98',
+      provider: 'ctyun',
+      name: 'DeepSeek-R1-昇腾版',
+      group: 'DeepSeek'
+    },
+    {
+      id: '9dc913a037774fc0b248376905c85da5',
+      provider: 'ctyun',
+      name: 'DeepSeek-V3-昇腾版',
+      group: 'DeepSeek'
+    }
+  ] 
 }
 
 export const TEXT_TO_IMAGES_MODELS = [
@@ -1585,6 +1599,7 @@ export const TEXT_TO_IMAGES_MODELS = [
     group: 'Stable Diffusion'
   }
 ]
+
 
 export const TEXT_TO_IMAGES_MODELS_SUPPORT_IMAGE_ENHANCEMENT = [
   'stabilityai/stable-diffusion-2-1',

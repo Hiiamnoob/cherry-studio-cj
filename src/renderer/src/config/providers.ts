@@ -36,6 +36,8 @@ import TogetherProviderLogo from '@renderer/assets/images/providers/together.png
 import BytedanceProviderLogo from '@renderer/assets/images/providers/volcengine.png'
 import ZeroOneProviderLogo from '@renderer/assets/images/providers/zero-one.png'
 import ZhipuProviderLogo from '@renderer/assets/images/providers/zhipu.png'
+import CTyunProviderLogo from '@renderer/assets/images/providers/ctyun.svg'
+
 export function getProviderLogo(providerId: string) {
   switch (providerId) {
     case 'openai':
@@ -114,6 +116,8 @@ export function getProviderLogo(providerId: string) {
       return PerplexityProviderLogo
     case 'infini':
       return InfiniProviderLogo
+    case 'ctyun':
+      return CTyunProviderLogo
     default:
       return undefined
   }
@@ -529,6 +533,17 @@ export const PROVIDER_CONFIG = {
       apiKey: 'https://console.bce.baidu.com/iam/#/iam/apikey/list',
       docs: 'https://cloud.baidu.com/doc/index.html',
       models: 'https://cloud.baidu.com/doc/WENXINWORKSHOP/s/Fm2vrveyu'
+    }
+  },
+  'ctyun': {
+    api: {
+      url: 'https://api.ctyun.com'
+    },
+    websites: {
+      official: 'https://www.ctyun.com/',
+      apiKey: 'https://huiju.ctyun.cn/service/serviceGroup',
+      docs: 'https://www.ctyun.cn/document/',
+      models: 'https://huiju.ctyun.cn/modelSquare'
     }
   }
 }

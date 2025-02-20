@@ -1,6 +1,6 @@
-@import './markdown.scss';
-@import './ant.scss';
-@import './scrollbar.scss';
+@use './markdown.scss' as *;
+@use './ant.scss' as *;
+@use './scrollbar.scss' as *;
 @import '../fonts/icon-fonts/iconfont.css';
 @import '../fonts/ubuntu/ubuntu.css';
 

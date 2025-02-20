@@ -45,6 +45,7 @@ import DeepSeekProviderLogo from '@renderer/assets/images/providers/deepseek.png
 import GroqProviderLogo from '@renderer/assets/images/providers/groq.png?url'
 import OpenAiProviderLogo from '@renderer/assets/images/providers/openai.png?url'
 import SiliconFlowProviderLogo from '@renderer/assets/images/providers/silicon.png?url'
+import CTyunProviderLogo from '@renderer/assets/images/providers/ctyun.svg'
 import MinApp from '@renderer/components/MinApp'
 import { MinAppType } from '@renderer/types'
 
@@ -321,38 +322,10 @@ export const DEFAULT_MIN_APPS: MinAppType[] = [
     bodered: true
   },
   {
-    id: 'dify',
-    name: 'Dify',
-    logo: DifyAppLogo,
-    url: 'https://cloud.dify.ai/apps',
-    bodered: true
-  },
-  {
-    id: 'wpslingxi',
-    name: 'WPS灵犀',
-    logo: WPSLingXiLogo,
-    url: 'https://copilot.wps.cn/',
-    bodered: true
-  },
-  {
-    id: 'lechat',
-    name: 'LeChat',
-    logo: LeChatLogo,
-    url: 'https://chat.mistral.ai/chat',
-    bodered: true
-  },
-  {
-    id: 'abacus',
-    name: 'Abacus',
-    logo: AbacusLogo,
-    url: 'https://apps.abacus.ai/chatllm',
-    bodered: true
-  },
-  {
-    id: 'lambdachat',
-    name: 'Lambda Chat',
-    logo: LambdaChatLogo,
-    url: 'https://lambda.chat/',
+    id: 'ctyun',
+    name: '天翼云',
+    url: 'https://huiju.ctyun.cn/',
+    logo: CTyunProviderLogo,
     bodered: true
   }
 ]
