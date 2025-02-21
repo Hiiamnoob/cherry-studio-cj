@@ -1098,6 +1098,19 @@ const migrateConfig = {
     state.settings.thoughtAutoCollapse = true
 
     return state
+  },
+  '72': (state: RootState) => {
+    state.llm.providers.push({
+      id: 'ctyun',
+      name: 'ctyun',
+      type: 'openai',
+      apiKey: '',
+      apiHost: 'https://api.ctyun.com',
+      models: SYSTEM_MODELS.ctyun,
+      isSystem: true,
+      enabled: false
+    })
+    return state
   }
 }
 

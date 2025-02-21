@@ -324,8 +324,8 @@ export const DEFAULT_MIN_APPS: MinAppType[] = [
   {
     id: 'ctyun',
     name: '天翼云',
-    url: 'https://huiju.ctyun.cn/',
     logo: CTyunProviderLogo,
+    url: 'https://huiju.ctyun.cn/',
     bodered: true
   }
 ]

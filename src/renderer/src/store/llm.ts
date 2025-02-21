@@ -406,6 +406,16 @@ const initialState: LlmState = {
       models: SYSTEM_MODELS.modelscope,
       isSystem: true,
       enabled: false
+    },
+    {
+      id: 'ctyun',
+      name: 'ctyun',
+      type: 'openai',
+      apiKey: '',
+      apiHost: 'https://api.ctyun.com',
+      models: SYSTEM_MODELS.ctyun,
+      isSystem: true,
+      enabled: false
     }
   ],
   settings: {

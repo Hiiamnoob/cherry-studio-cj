@@ -1517,7 +1517,7 @@ export const SYSTEM_MODELS: Record<string, Model[]> = {
   ],
   ctyun: [
     {
-      id: '4bd107bff85941239e27b1509eccfe98',
+      id: 'Deepseek-R1-昇腾版',
       provider: 'ctyun',
       name: 'DeepSeek-R1-昇腾版',
       group: 'DeepSeek'
