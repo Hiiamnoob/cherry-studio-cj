@@ -1179,7 +1179,22 @@ const migrateConfig = {
     }
 
     return state
+  },
+
+  '74': (state: RootState) => {
+    state.llm.providers.push({
+      id: 'ctyun',
+      name: 'ctyun',
+      type: 'openai',
+      apiKey: '',
+      apiHost: 'https://wishub-x1.ctyun.cn',
+      models: SYSTEM_MODELS.ctyun,
+      isSystem: true,
+      enabled: false
+    })
+    return state
   }
+
 }
 
 const migrate = createMigrate(migrateConfig as any)
