@@ -1105,7 +1105,7 @@ const migrateConfig = {
       name: 'ctyun',
       type: 'openai',
       apiKey: '',
-      apiHost: 'https://api.ctyun.com',
+      apiHost: 'https://wishub-x1.ctyun.cn',
       models: SYSTEM_MODELS.ctyun,
       isSystem: true,
       enabled: false

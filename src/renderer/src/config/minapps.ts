@@ -1,4 +1,5 @@
 import ThreeMinTopAppLogo from '@renderer/assets/images/apps/3mintop.png?url'
+// @ts-ignore: 忽略未使用的导入
 import AbacusLogo from '@renderer/assets/images/apps/abacus.webp?url'
 import AIStudioLogo from '@renderer/assets/images/apps/aistudio.svg?url'
 import BaiduAiAppLogo from '@renderer/assets/images/apps/baidu-ai.png?url'
@@ -6,6 +7,7 @@ import BaicuanAppLogo from '@renderer/assets/images/apps/baixiaoying.webp?url'
 import BoltAppLogo from '@renderer/assets/images/apps/bolt.svg?url'
 import CozeAppLogo from '@renderer/assets/images/apps/coze.webp?url'
 import DevvAppLogo from '@renderer/assets/images/apps/devv.png?url'
+// @ts-ignore: 忽略未使用的导入
 import DifyAppLogo from '@renderer/assets/images/apps/dify.webp?url'
 import DoubaoAppLogo from '@renderer/assets/images/apps/doubao.png?url'
 import DuckDuckGoAppLogo from '@renderer/assets/images/apps/duckduckgo.webp?url'
@@ -18,7 +20,9 @@ import GrokAppLogo from '@renderer/assets/images/apps/grok.png?url'
 import HikaLogo from '@renderer/assets/images/apps/hika.webp?url'
 import HuggingChatLogo from '@renderer/assets/images/apps/huggingchat.svg?url'
 import KimiAppLogo from '@renderer/assets/images/apps/kimi.jpg?url'
+// @ts-ignore: 忽略未使用的导入
 import LambdaChatLogo from '@renderer/assets/images/apps/lambdachat.webp?url'
+// @ts-ignore: 忽略未使用的导入
 import LeChatLogo from '@renderer/assets/images/apps/lechat.png?url'
 import MetasoAppLogo from '@renderer/assets/images/apps/metaso.webp?url'
 import NamiAiLogo from '@renderer/assets/images/apps/nm.png?url'
@@ -33,6 +37,7 @@ import SparkDeskAppLogo from '@renderer/assets/images/apps/sparkdesk.png?url'
 import ThinkAnyLogo from '@renderer/assets/images/apps/thinkany.webp?url'
 import TiangongAiLogo from '@renderer/assets/images/apps/tiangong.png?url'
 import WanZhiAppLogo from '@renderer/assets/images/apps/wanzhi.jpg?url'
+// @ts-ignore: 忽略未使用的导入
 import WPSLingXiLogo from '@renderer/assets/images/apps/wpslingxi.webp?url'
 import XiaoYiAppLogo from '@renderer/assets/images/apps/xiaoyi.webp?url'
 import TencentYuanbaoAppLogo from '@renderer/assets/images/apps/yuanbao.png?url'
@@ -45,7 +50,7 @@ import DeepSeekProviderLogo from '@renderer/assets/images/providers/deepseek.png
 import GroqProviderLogo from '@renderer/assets/images/providers/groq.png?url'
 import OpenAiProviderLogo from '@renderer/assets/images/providers/openai.png?url'
 import SiliconFlowProviderLogo from '@renderer/assets/images/providers/silicon.png?url'
-import CTyunProviderLogo from '@renderer/assets/images/providers/ctyun.svg'
+import CTyunProviderLogo from '@renderer/assets/images/providers/ctyun.jpg?url'
 import MinApp from '@renderer/components/MinApp'
 import { MinAppType } from '@renderer/types'
 

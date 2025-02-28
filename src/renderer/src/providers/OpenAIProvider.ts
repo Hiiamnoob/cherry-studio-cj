@@ -16,6 +16,8 @@ import {
 
 import { CompletionsParams } from '.'
 import BaseProvider from './BaseProvider'
+// @ts-ignore: 忽略未使用的导入
+import { message } from 'antd'
 
 export default class OpenAIProvider extends BaseProvider {
   private sdk: OpenAI
@@ -168,6 +170,59 @@ export default class OpenAIProvider extends BaseProvider {
     return model.id.startsWith('o1')
   }
 
+
+  /**
+   * 格式化消息以适应特定的处理需求
+   * 此函数主要用于根据当前消息列表和用户消息参数，格式化消息列表，以适应某些特定供应商的处理要求
+   * 
+   * @param messages 消息列表
+   * @param userMessage 用户消息参数，用于发送请求的对象
+   * @author Cjj
+   * @date 2025-02-23
+   */
+  private formatMessages(messages: Message[] | null | undefined, userMessage: ChatCompletionMessageParam[] | null | undefined) {
+    // 确保 messages 和 userMessage 不为 null 或 undefined
+    messages = messages || [];
+    userMessage = userMessage || [];
+
+    console.log('当前供应商', this.provider.id);
+
+    // deepseek-reasoner 供应商的特殊处理
+    if (this.provider.id === 'deepseek-reasoner') {
+      // 如果没有消息或第一条消息不是 user，添加默认 user 消息
+      if (messages.length === 0 || messages[0]?.role !== 'user') {
+        userMessage.unshift({ role: 'user', content: '' });
+      }
+    }
+
+    // ctyun 供应商的特殊处理
+    if (this.provider.id === 'ctyun') {
+
+      // 如果第一条消息是 assistant，移除它,天翼云不允许第一条消息的role为assistant
+      if (messages.length > 0 && messages[0].role === 'assistant') {
+        messages.splice(0, 1);
+        console.log('messages', messages);
+      }
+      //遍历整一个messages数组，如果role为assistant并且content为空，则删除当前message,并且将当前message的上一条role给删除（如果存在）
+      // 天翼云不允许assistant的content为空，并且只允许assistant与role是相连的。
+      for (let i = messages.length - 1; i >= 0; i--) {
+        const message = messages[i];
+        if (message.role === 'assistant' && message.content === '') {
+          messages.splice(i, 1); // 删除当前元素
+          if (i - 1 >= 0) {
+            messages.splice(i - 1, 1); // 删除前一个元素
+          }
+        }
+      }
+      // 如果没有消息，添加默认 user 消息,天翼云不允许第一条消息的content为空
+      if (messages.length === 0) {
+        userMessage.unshift({ role: 'user', content: '你好' });
+      }
+    }
+
+  }
+
+
   async completions({ messages, assistant, onChunk, onFilterMessages }: CompletionsParams): Promise<void> {
     const defaultModel = getDefaultModel()
     const model = assistant.model || defaultModel
@@ -187,11 +242,22 @@ export default class OpenAIProvider extends BaseProvider {
     const _messages = filterContextMessages(takeRight(messages, contextCount + 1))
     onFilterMessages(_messages)
 
-    if (model.id === 'deepseek-reasoner') {
-      if (_messages[0]?.role !== 'user') {
-        userMessages.push({ role: 'user', content: '' })
-      }
-    }
+    // 格式化消息以适应某些供应商的特殊处理
+    this.formatMessages(_messages, userMessages);
+
+    console.log("此时的_messages", _messages);
+
+    /**
+     * 已移动到 formatMessages 中 
+     * @Cjj
+     * @date 2025-02-23
+     */
+    // if (model.id === 'deepseek-reasoner') {
+    //   if (_messages[0]?.role !== 'user') {
+    //     userMessages.push({ role: 'user', content: '' })
+    //   }
+    // }
+
 
     for (const message of _messages) {
       userMessages.push(await this.getMessageParam(message, model))
@@ -289,9 +355,9 @@ export default class OpenAIProvider extends BaseProvider {
     const model = assistant.model || defaultModel
     const messages = message.content
       ? [
-          { role: 'system', content: assistant.prompt },
-          { role: 'user', content: message.content }
-        ]
+        { role: 'system', content: assistant.prompt },
+        { role: 'user', content: message.content }
+      ]
       : [{ role: 'user', content: assistant.prompt }]
 
     const isOpenAIo1 = this.isOpenAIo1(model)

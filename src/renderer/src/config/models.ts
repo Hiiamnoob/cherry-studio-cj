@@ -1517,7 +1517,7 @@ export const SYSTEM_MODELS: Record<string, Model[]> = {
   ],
   ctyun: [
     {
-      id: 'Deepseek-R1-昇腾版',
+      id: '4bd107bff85941239e27b1509eccfe98',
       provider: 'ctyun',
       name: 'DeepSeek-R1-昇腾版',
       group: 'DeepSeek'
@@ -1527,8 +1527,20 @@ export const SYSTEM_MODELS: Record<string, Model[]> = {
       provider: 'ctyun',
       name: 'DeepSeek-V3-昇腾版',
       group: 'DeepSeek'
+    },
+    {
+      id: '7ba7726dad4c4ea4ab7f39c7741aea68',
+      provider: 'ctyun',
+      name: 'DeepSeek-R1-英伟达版',
+      group: 'DeepSeek'
+    },
+    {
+      id: 'e8c39004ff804ca699d47b9254039db8',
+      provider: 'ctyun',
+      name: 'Qwen-VL-Chat',
+      group: 'qwen-vl'
     }
-  ] 
+  ]
 }
 
 export const TEXT_TO_IMAGES_MODELS = [
@@ -1635,6 +1647,12 @@ export function isVisionModel(model: Model): boolean {
     return VISION_REGEX.test(model.name) || model.type?.includes('vision') || false
   }
 
+  // 处理天翼云的模型
+  //@Author: CJJ
+  if (model.provider === 'ctyun') {
+    return VISION_REGEX.test(model.name) || model.type?.includes('vision') || false
+  }
+
   return VISION_REGEX.test(model.id) || model.type?.includes('vision') || false
 }
 
@@ -1644,6 +1662,12 @@ export function isReasoningModel(model: Model): boolean {
   }
 
   if (model.provider === 'doubao') {
+    return REASONING_REGEX.test(model.name) || model.type?.includes('reasoning') || false
+  }
+
+  // 处理天翼云的模型
+  //@Author: CJJ
+  if (model.provider === 'ctyun') {
     return REASONING_REGEX.test(model.name) || model.type?.includes('reasoning') || false
   }
 

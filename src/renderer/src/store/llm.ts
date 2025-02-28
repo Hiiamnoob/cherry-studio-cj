@@ -412,7 +412,7 @@ const initialState: LlmState = {
       name: 'ctyun',
       type: 'openai',
       apiKey: '',
-      apiHost: 'https://api.ctyun.com',
+      apiHost: 'https://wishub-x1.ctyun.cn',
       models: SYSTEM_MODELS.ctyun,
       isSystem: true,
       enabled: false
@@ -480,10 +480,10 @@ const settingsSlice = createSlice({
       state.providers = state.providers.map((p) =>
         p.id === action.payload.providerId
           ? {
-              ...p,
-              models: uniqBy(p.models.concat(action.payload.model), 'id'),
-              enabled: true
-            }
+            ...p,
+            models: uniqBy(p.models.concat(action.payload.model), 'id'),
+            enabled: true
+          }
           : p
       )
     },
@@ -491,9 +491,9 @@ const settingsSlice = createSlice({
       state.providers = state.providers.map((p) =>
         p.id === action.payload.providerId
           ? {
-              ...p,
-              models: p.models.filter((m) => m.id !== action.payload.model.id)
-            }
+            ...p,
+            models: p.models.filter((m) => m.id !== action.payload.model.id)
+          }
           : p
       )
     },

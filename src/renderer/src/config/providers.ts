@@ -36,7 +36,7 @@ import TogetherProviderLogo from '@renderer/assets/images/providers/together.png
 import BytedanceProviderLogo from '@renderer/assets/images/providers/volcengine.png'
 import ZeroOneProviderLogo from '@renderer/assets/images/providers/zero-one.png'
 import ZhipuProviderLogo from '@renderer/assets/images/providers/zhipu.png'
-import CTyunProviderLogo from '@renderer/assets/images/providers/ctyun.svg'
+import CTyunProviderLogo from '@renderer/assets/images/providers/ctyun.jpg'
 
 export function getProviderLogo(providerId: string) {
   switch (providerId) {
@@ -537,7 +537,7 @@ export const PROVIDER_CONFIG = {
   },
   'ctyun': {
     api: {
-      url: 'https://api.ctyun.com'
+      url: 'https://wishub-x1.ctyun.cn'
     },
     websites: {
       official: 'https://www.ctyun.com/',
