@@ -44,7 +44,7 @@ export default class OpenAIProvider extends BaseProvider {
   }
 
   private get isNotSupportFiles() {
-    const providers = ['deepseek', 'baichuan', 'minimax', 'doubao']
+    const providers = ['deepseek', 'baichuan', 'minimax', 'doubao', 'ctyun']
     return providers.includes(this.provider.id)
   }
 
